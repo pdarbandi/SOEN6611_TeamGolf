@@ -3,6 +3,8 @@ package view;
 import java.lang.reflect.InvocationTargetException;
 
 import metrics.LCOM;
+import metrics.MoodCouplingFactor;
+import metrics.MoodPolymorphismFactor;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -108,7 +110,12 @@ public class MetricsAction  implements IObjectActionDelegate {
 						}
 						SystemObject system = ASTReader.getSystemObject();
 						LCOM lcom = new LCOM(system);
-						System.out.print(lcom.toString());
+						System.out.print("LCOM : \n" + lcom.toString());
+						System.out.println("\n___________________________\n");
+						MoodPolymorphismFactor mpf = new MoodPolymorphismFactor(system);
+						System.out.println("MOOD PF: " + mpf.getMoodPolymorphismFactor());
+						MoodCouplingFactor mcf = new MoodCouplingFactor(system);
+						System.out.println("MOOD CF: " + mcf.getMoodCouplingFactor());
 						
 						if(selectedPackageFragmentRoot != null) {
 							// package fragment root selected

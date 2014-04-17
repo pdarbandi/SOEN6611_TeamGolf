@@ -17,6 +17,9 @@ public class LCOM {
 
 	public LCOM(SystemObject system) {
 		cohesionMap = new HashMap<String, Integer>();
+		//////
+		///
+		///
 		
 		Set<ClassObject> classes = system.getClassObjects();
 		
